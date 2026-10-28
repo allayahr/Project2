@@ -9,5 +9,6 @@ CanvasAPI canvas = Graphics.createCanvas(800, 600, "My First Drawing");
  PainterAPI painter = canvas.getPainter();
  painter.setSpeed(10); // Lower number means faster, zero means as fast as possible.
 painter.forward(100);
+allayah
  }
 }
