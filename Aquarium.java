@@ -12,6 +12,8 @@ CanvasAPI canvas = Graphics.createCanvas(800, 600, "My Aquarium");
  drawBackround(painter);
  drawsand(painter);
  drawStarfish(painter);
+ drawSeaweed(painter);
+
  
 }
 public static void drawBackround(PainterAPI painter) { 
@@ -97,7 +99,7 @@ public static void drawStarfish(PainterAPI painter){
         painter.forward(28);
         painter.backward(28);
         painter.turnRight(72);
-        
+
 
 
 
@@ -106,6 +108,44 @@ public static void drawStarfish(PainterAPI painter){
     painter.turnRight(90);    
 }
 public static void drawSeaweed(PainterAPI painter){
+    painter.liftPen();
+
+    //Move from the second starfish to to the left 
+    painter.backward(520);
+    painter.turnLeft(90);
+    painter.forward(30);
+    painter.turnRight(90);
+
+    painter.setPenColor(new Color(34,139,34));
+    painter.setPenWidth(6);
+
+    //Draw three stems
+    for (int stem =0; stem < 3; stem++) {
+        painter.turnLeft(90);
+        painter.lowerPen();
+
+        //Draw the stem and leaves
+        for (int leaf = 0; leaf < 5; leaf++) {
+            painter.forward(20);
+
+            painter.turnRight(45);
+            painter.forward(15);
+            painter.backward(15);
+
+            painter.turnLeft(90);
+            painter.forward(15);
+            painter.backward(15);
+
+            painter.turnRight(45);
+        }    
+
+            //Return to the bottom and move over
+            painter.liftPen();
+            painter.backward(100);
+            painter.turnRight(90);
+            painter.forward(35);
+    }      
+
 }
 public static void drawBubbles(PainterAPI painter){
 }
