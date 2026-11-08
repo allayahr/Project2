@@ -11,6 +11,7 @@ CanvasAPI canvas = Graphics.createCanvas(800, 600, "My Aquarium");
  painter.setSpeed(0); // Lower number means faster, zero means as fast as possible.
  drawBackround(painter);
  drawsand(painter);
+ drawStarfish(painter);
  
 }
 public static void drawBackround(PainterAPI painter) { 
@@ -65,6 +66,44 @@ public static void drawsand(PainterAPI painter) {
     painter.liftPen();
 }
 public static void drawStarfish(PainterAPI painter){
+    painter.liftPen();
+
+    //Move to the first starfish
+    painter.forward(160);
+    painter.turnLeft(90);
+    painter.forward(45);
+
+    painter.setPenColor(Color.ORANGE);
+    painter.setPenWidth(12);
+    painter.lowerPen();
+
+    //Draw five arms
+    for (int i = 0; i < 5; i++) {
+        painter.forward(32);
+        painter.backward(32);
+        painter.turnRight(72);
+    }
+    painter.liftPen();
+    
+    //Move to the second starfish
+    painter.turnRight(90);
+    painter.forward(430);
+    painter.turnLeft(90);
+
+    painter.setPenColor(Color.PINK);
+    painter.lowerPen();
+
+    for (int i = 0; i < 5; i++) {
+        painter.forward(28);
+        painter.backward(28);
+        painter.turnRight(72);
+        
+
+
+
+    }
+    painter.liftPen();
+    painter.turnRight(90);    
 }
 public static void drawSeaweed(PainterAPI painter){
 }
