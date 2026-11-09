@@ -13,6 +13,8 @@ CanvasAPI canvas = Graphics.createCanvas(800, 600, "My Aquarium");
  drawsand(painter);
  drawStarfish(painter);
  drawSeaweed(painter);
+ drawBubbles(painter);
+
 
  
 }
@@ -148,9 +150,37 @@ public static void drawSeaweed(PainterAPI painter){
 
 }
 public static void drawBubbles(PainterAPI painter){
-}
-} 
+    painter.liftPen();
 
+    //Move from the original three seaweed stems
+    //to the right of my aquarium
+    painter.forward(500);
+    painter.turnLeft(90);
+    painter.forward(120);
+    painter.turnRight(90);
+
+    painter.setPenColor(Color.WHITE);
+    painter.setPenWidth(2);
+
+    //Draw five bubbles 
+    for (int bubble = 0; bubble < 5; bubble++) {
+        painter.lowerPen();
+
+        //Short lines form a round bubble
+        for (int side = 0; side < 24;  side++) {
+            painter.forward(3);
+            painter.turnRight(15);
+        }
+        
+        //Move up tp the next bubble 
+        painter.liftPen();
+        painter.turnLeft(90);
+        painter.forward(65);
+        painter.turnRight(90);
+    }    
+
+} 
+}
 
 
 
