@@ -14,6 +14,7 @@ CanvasAPI canvas = Graphics.createCanvas(800, 600, "My Aquarium");
  drawStarfish(painter);
  drawSeaweed(painter);
  drawBubbles(painter);
+ drawFish(painter);
 
 
  
@@ -180,7 +181,74 @@ public static void drawBubbles(PainterAPI painter){
     }    
 
 } 
+public static void drawFish(PainterAPI painter) {
+    painter.liftPen();
+
+    //Move from the bubbles to the first fish
+    painter.backward(465);
+    painter.turnRight(90);
+    painter.forward(120);
+    painter.turnLeft(90);
+
+    drawOneFish(painter, Color.YELLOW);
+
+    //Move right and down to the second fish
+    painter.forward(210);
+    painter.turnRight(90);
+    painter.forward(130);
+    painter.turnLeft(90);
+
+    drawOneFish(painter, Color.ORANGE);
+
 }
+public static void drawOneFish(PainterAPI painter, Color fishColor) {
+    painter.setPenColor(fishColor);
+    painter.setPenWidth(5);
+    painter.lowerPen();
+
+    //Draw the Body
+    painter.turnLeft(45);
+    painter.forward(28);
+    painter.turnRight(45);
+    painter.forward(60);
+    painter.turnRight(45);
+    painter.forward(28);
+    painter.turnRight(90);
+    painter.forward(28);
+    painter.turnRight(45);
+    painter.forward(60);
+    painter.turnRight(45);
+    painter.forward(28);
+    painter.turnRight(135);
+
+    //Draw the tail 
+    painter.turnLeft(135);
+    painter.forward(34);
+    painter.backward(34);
+    painter.turnLeft(90);
+    painter.forward(34);
+    painter.backward(34);
+    painter.turnLeft(135);
+
+    //Draw an eye
+    painter.liftPen();
+    painter.forward(84);
+    painter.setPenColor(Color.WHITE);
+    painter.setPenWidth(8);
+    painter.lowerPen();
+    painter.forward(2);
+
+    //Return to the tail and the pen up 
+    painter.liftPen();
+    painter.backward(86);
+
+
+
+ 
+
+ }
+} 
+
 
 
 
